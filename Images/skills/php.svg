@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" role="img" aria-labelledby="title">
+  <title id="title">PHP</title>
+  <rect width="80" height="80" rx="18" fill="#777bb4"/>
+  <ellipse cx="40" cy="40" rx="30" ry="20" fill="#fff" opacity=".18"/>
+  <text x="40" y="48" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="25" font-weight="800">PHP</text>
+</svg>

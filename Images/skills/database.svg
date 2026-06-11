@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" role="img" aria-labelledby="title">
+  <title id="title">PostgreSQL and MySQL</title>
+  <rect width="80" height="80" rx="18" fill="#0f172a"/>
+  <ellipse cx="40" cy="22" rx="24" ry="10" fill="#336791"/>
+  <path d="M16 22v34c0 6 11 10 24 10s24-4 24-10V22" fill="#336791"/>
+  <ellipse cx="40" cy="56" rx="24" ry="10" fill="#1f4f73"/>
+  <text x="40" y="43" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="15" font-weight="800">SQL</text>
+</svg>

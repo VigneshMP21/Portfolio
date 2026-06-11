@@ -25,89 +25,6 @@ document.addEventListener("DOMContentLoaded", () => {
   })();
 
   // ============================================
-  // CUSTOM CURSOR (Enhanced)
-  // ============================================
-  (function initCursor() {
-    const dot = document.getElementById("cursorDot");
-    const ring = document.getElementById("cursorRing");
-    const blur = document.getElementById("cursorBlur");
-    if (!dot || !ring) return;
-
-    let mouseX = 0, mouseY = 0;
-    let ringX = 0, ringY = 0;
-    let blurX = 0, blurY = 0;
-
-    // Movement Tracking
-    document.addEventListener("mousemove", (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-      
-      // Update dot immediately
-      dot.style.left = mouseX + "px";
-      dot.style.top = mouseY + "px";
-      
-      // Show cursor if it was hidden
-      document.body.classList.remove("cursor-hidden");
-    });
-
-    // Smoothing for the ring and blur
-    function animate() {
-      // Ring follows with slight lag
-      ringX += (mouseX - ringX) * 0.15;
-      ringY += (mouseY - ringY) * 0.15;
-      ring.style.left = ringX + "px";
-      ring.style.top = ringY + "px";
-
-      // Blur follows with more lag
-      if (blur) {
-        blurX += (mouseX - blurX) * 0.05;
-        blurY += (mouseY - blurY) * 0.05;
-        blur.style.left = blurX + "px";
-        blur.style.top = blurY + "px";
-      }
-
-      requestAnimationFrame(animate);
-    }
-    animate();
-
-    // Click Effects
-    document.addEventListener("mousedown", () => {
-      ring.classList.add("click");
-      setTimeout(() => ring.classList.remove("click"), 400);
-    });
-
-    // Hover Interactivity
-    const interactiveEls = document.querySelectorAll(
-      "a, button, .btn, .project-card, .skill-card, .nav-item, .hero-social a"
-    );
-
-    interactiveEls.forEach(el => {
-      el.addEventListener("mouseenter", () => {
-        dot.classList.add("hover");
-        ring.classList.add("hover");
-        if (blur) blur.classList.add("hover");
-        
-        // Magnetic effect for buttons
-        if (el.classList.contains("btn") || el.tagName === "BUTTON") {
-          ring.classList.add("magnetic");
-        }
-      });
-
-      el.addEventListener("mouseleave", () => {
-        dot.classList.remove("hover");
-        ring.classList.remove("hover");
-        if (blur) blur.classList.remove("hover");
-        ring.classList.remove("magnetic");
-      });
-    });
-
-    // Hide when mouse leaves window
-    document.addEventListener("mouseleave", () => {
-      document.body.classList.add("cursor-hidden");
-    });
-  })();
-
-  // ============================================
   // SCROLL PROGRESS
   // ============================================
   (function initScrollProgress() {
@@ -344,37 +261,6 @@ document.addEventListener("DOMContentLoaded", () => {
   })();
 
   // ============================================
-  // TIMELINE ANIMATION
-  // ============================================
-  (function initTimeline() {
-    const items = document.querySelectorAll(".timeline-item");
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) { entry.target.classList.add("active"); obs.unobserve(entry.target); }
-      });
-    }, { threshold: 0.15 });
-    items.forEach(item => {
-      item.querySelector(".timeline-content").style.opacity = "0";
-      item.querySelector(".timeline-content").style.transform = "translateY(30px)";
-      item.querySelector(".timeline-content").style.transition = "opacity 0.6s ease, transform 0.6s ease";
-      obs.observe(item);
-    });
-    // Extra observer to apply active
-    const obs2 = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const content = entry.target.querySelector(".timeline-content");
-          if (content) { content.style.opacity = "1"; content.style.transform = "translateY(0)"; }
-          obs2.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
-    items.forEach(item => obs2.observe(item));
-  })();
-
-
-
-  // ============================================
   // CONTACT FORM (Handled by EmailJS at bottom)
   // ============================================
 
@@ -397,13 +283,77 @@ document.addEventListener("DOMContentLoaded", () => {
   // ============================================
   // PROJECT MODAL
   // ============================================
+  const techLogos = {
+    "React.js": "Images/skills/react.svg",
+    "Node.js": "Images/skills/nodejs.svg",
+    "Express.js": "Images/skills/express.svg",
+    "TypeScript": "Images/skills/typescript.svg",
+    "Bootstrap": "Images/skills/bootstrap.svg",
+    "PostgreSQL": "Images/skills/postgresql.svg",
+    "HTML": "Images/skills/html.svg",
+    "CSS": "Images/skills/css.svg",
+    "JavaScript": "Images/skills/javascript.svg",
+    "PHP": "Images/skills/php.svg",
+    "MySQL": "Images/skills/mysql.svg",
+    "Android Studio": "Images/skills/android-studio.svg",
+    "REST APIs": "Images/skills/rest-api.svg"
+  };
+
   const projectData = [
-    { title: "E-Commerce Platform", image: "Images/E-Commerce.png", desc: "A full-featured online store built with React and Node.js. Features include real-time inventory management, Stripe payment integration, admin dashboard with analytics, user authentication, and a responsive design optimized for all devices.", tags: ["React", "Node.js", "Stripe", "MongoDB"], features: ["Real-time inventory tracking", "Stripe payment processing", "Admin analytics dashboard", "JWT authentication", "Responsive design"] },
-    { title: "AI Content Generator", image: "Images/AI Content Generator.png", desc: "Machine learning powered content generation tool that creates marketing copy, blog posts, and social media content using state-of-the-art NLP models. Fine-tuned on industry-specific datasets for high-quality output.", tags: ["Python", "TensorFlow", "Flask", "NLP"], features: ["GPT-based text generation", "Multi-language support", "Content tone customization", "Batch processing", "API integration ready"] },
-    { title: "Analytics Dashboard", image: "Images/Analytics Dashboard.png", desc: "Real-time business intelligence dashboard featuring interactive D3.js visualizations, drill-down capabilities, and customizable widgets. Handles millions of data points with smooth performance.", tags: ["Vue.js", "D3.js", "Firebase", "Chart.js"], features: ["Real-time data streaming", "Interactive D3 charts", "Custom widget builder", "Export to PDF/CSV", "Role-based access"] },
-    { title: "Fitness Tracker App", image: "Images/Fitness Tracker App.png", desc: "Cross-platform mobile application for tracking workouts, nutrition, and progress. Features include GPS route tracking, social challenges, personalized workout plans powered by AI recommendations.", tags: ["React Native", "Firebase", "Redux"], features: ["GPS workout tracking", "AI workout recommendations", "Social challenges", "Progress visualization", "Offline support"] },
-    { title: "Smart Voice Assistant", image: "Images/Smart Voice Assistant.png", desc: "Voice-controlled personal assistant with advanced NLP capabilities. Can manage tasks, control smart home devices, answer queries, and integrate with third-party services via custom API connectors.", tags: ["Python", "NLP", "FastAPI", "WebSocket"], features: ["Natural language understanding", "Smart home integration", "Task automation", "Custom skill SDK", "Real-time speech processing"] },
-    { title: "Social Media Platform", image: "Images/Social Media Platform.png", desc: "A modern social networking application with real-time messaging, story sharing, content feeds, and an AI-powered recommendation system. Built for scalability with Next.js and PostgreSQL.", tags: ["Next.js", "Prisma", "PostgreSQL", "Redis"], features: ["Real-time messaging", "Story sharing (24h)", "AI content feed", "Push notifications", "End-to-end encryption"] }
+    {
+      title: "E-Commerce Website",
+      image: "Images/project-ecommerce.jpeg",
+      desc: "Full-stack e-commerce website built with React.js, Node.js, Express.js, TypeScript, Bootstrap, JavaScript, PostgreSQL, HTML, and CSS.",
+      tags: ["React.js", "Node.js", "Express.js", "TypeScript", "Bootstrap", "PostgreSQL"],
+      features: ["Project type: E-commerce website", "Frontend: React.js, TypeScript, Bootstrap, HTML, CSS, JavaScript", "Backend: Node.js, Express.js, PostgreSQL"],
+      liveUrl: "https://e-commerce-website-sandy-seven.vercel.app/",
+      cta: "Live Demo"
+    },
+    {
+      title: "Quiz Website",
+      image: "Images/project-quiz.png",
+      desc: "Quiz website built with HTML, CSS, JavaScript, PHP, and MySQL.",
+      tags: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
+      features: ["Project type: Quiz website", "Frontend: HTML, CSS, JavaScript", "Backend: PHP, MySQL"],
+      liveUrl: "https://quizpro.free.nf/",
+      cta: "Live Demo"
+    },
+    {
+      title: "Live Cricket Scorecard Website",
+      image: "Images/project-cricket-scorecard.jpeg",
+      desc: "Live cricket scorecard website built with HTML, CSS, JavaScript, PHP, and MySQL.",
+      tags: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
+      features: ["Project type: Live cricket scorecard website", "Frontend: HTML, CSS, JavaScript", "Backend: PHP, MySQL"],
+      liveUrl: "https://cptleague.free.nf/",
+      cta: "Live Demo"
+    },
+    {
+      title: "Class Management Portal Website",
+      image: "Images/project-class-portal.jpeg",
+      desc: "Class management portal website built with HTML, CSS, JavaScript, PHP, and MySQL.",
+      tags: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
+      features: ["Project type: Class management portal website", "Frontend: HTML, CSS, JavaScript", "Backend: PHP, MySQL"],
+      liveUrl: "https://sietkcai.infinityfreeapp.com",
+      cta: "Live Demo"
+    },
+    {
+      title: "CPL Cricket App",
+      image: "Images/project-cpl-app.jpeg",
+      desc: "CPL cricket app project built with Android Studio.",
+      tags: ["Android Studio"],
+      features: ["Project type: Cricket app", "Development tool: Android Studio", "Live app page: Netlify"],
+      liveUrl: "https://cptleague.netlify.app/",
+      cta: "Open App"
+    },
+    {
+      title: "CAI Class Assistant Telegram Bot",
+      image: "Images/project-telegram-bot.png",
+      desc: "Telegram bot built with Node.js, Express.js, JavaScript, and REST APIs for CAI class assistance.",
+      tags: ["Node.js", "Express.js", "JavaScript", "REST APIs"],
+      features: ["Project type: Telegram bot", "Backend: Node.js, Express.js, JavaScript", "Integration: REST APIs"],
+      liveUrl: "https://t.me/cai_class_bot",
+      cta: "Open Bot"
+    }
   ];
 
   window.openProjectModal = (index) => {
@@ -416,7 +366,16 @@ document.addEventListener("DOMContentLoaded", () => {
     tagsContainer.innerHTML = "";
     data.tags.forEach(tag => {
       const span = document.createElement("span");
-      span.textContent = tag;
+      span.title = tag;
+      const logo = techLogos[tag];
+      if (logo) {
+        const img = document.createElement("img");
+        img.src = logo;
+        img.alt = tag;
+        span.appendChild(img);
+      } else {
+        span.textContent = tag;
+      }
       tagsContainer.appendChild(span);
     });
     const featuresList = document.getElementById("modalFeatures");
@@ -430,6 +389,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const modalImg = document.getElementById("modalImg");
     const modalPlaceholder = document.getElementById("modalImgPlaceholder");
     if (data.image) {
+      modalImg.alt = data.title;
+      modalImg.onerror = () => {
+        modalImg.style.display = "none";
+        modalPlaceholder.style.display = "flex";
+      };
+      modalImg.onload = () => {
+        modalImg.style.display = "block";
+        modalPlaceholder.style.display = "none";
+      };
       modalImg.src = data.image;
       modalImg.style.display = "block";
       modalPlaceholder.style.display = "none";
@@ -437,6 +405,10 @@ document.addEventListener("DOMContentLoaded", () => {
       modalImg.style.display = "none";
       modalPlaceholder.style.display = "flex";
     }
+
+    const modalLiveLink = document.getElementById("modalLiveLink");
+    modalLiveLink.href = data.liveUrl;
+    modalLiveLink.innerHTML = `<i class="fas fa-external-link-alt"></i> ${data.cta || "Live Preview"}`;
 
     modal.classList.add("active");
     document.body.style.overflow = "hidden";

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" role="img" aria-labelledby="title">
+  <title id="title">Node.js</title>
+  <rect width="80" height="80" rx="18" fill="#1f2937"/>
+  <path d="M40 11l25 14v30L40 69 15 55V25L40 11z" fill="#68a063"/>
+  <text x="40" y="47" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="19" font-weight="800">node</text>
+</svg>

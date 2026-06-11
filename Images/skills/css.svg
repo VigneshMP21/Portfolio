@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" role="img" aria-labelledby="title">
+  <title id="title">CSS</title>
+  <rect width="80" height="80" rx="18" fill="#111827"/>
+  <path d="M18 10h44l-4 50-18 10-18-10-4-50z" fill="#1572b6"/>
+  <path d="M40 16h16l-3 40-13 7V16z" fill="#33a9dc"/>
+  <path d="M27 25h27l-.6 7H35l.4 6h17.4l-1.4 15L40 59l-10.8-6-.7-8h7.2l.3 3.7 4 2.1 4-2.1.5-4.2H28.1L26.5 25z" fill="#fff"/>
+</svg>

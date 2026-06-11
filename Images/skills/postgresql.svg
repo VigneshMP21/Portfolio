@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" role="img" aria-labelledby="title">
+  <title id="title">PostgreSQL</title>
+  <rect width="80" height="80" rx="18" fill="#0f172a"/>
+  <circle cx="40" cy="40" r="27" fill="#336791"/>
+  <path d="M28 43c0-13 5-21 15-21 8 0 13 6 13 14 0 7-4 12-10 14l3 10-8 4-3-13h-5c-3 0-5-3-5-8z" fill="#fff" opacity=".94"/>
+  <path d="M37 37c0-4 2-7 6-7s6 3 6 7-2 7-6 7-6-3-6-7z" fill="#336791"/>
+  <circle cx="45" cy="36" r="2" fill="#fff"/>
+</svg>

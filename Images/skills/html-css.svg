@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" role="img" aria-labelledby="title">
+  <title id="title">HTML and CSS</title>
+  <rect width="80" height="80" rx="18" fill="#111827"/>
+  <path d="M15 12h22l-2 45-9 4-9-4-2-45z" fill="#e44d26"/>
+  <path d="M43 12h22l-2 45-9 4-9-4-2-45z" fill="#1572b6"/>
+  <text x="26" y="43" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="13" font-weight="700">H</text>
+  <text x="54" y="43" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="13" font-weight="700">C</text>
+</svg>
