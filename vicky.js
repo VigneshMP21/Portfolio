@@ -296,10 +296,29 @@ document.addEventListener("DOMContentLoaded", () => {
     "PHP": "Images/skills/php.svg",
     "MySQL": "Images/skills/mysql.svg",
     "Android Studio": "Images/skills/android-studio.svg",
-    "REST APIs": "Images/skills/rest-api.svg"
+    "REST APIs": "Images/skills/rest-api.svg",
+    "Python": "Images/skills/python.svg"
   };
 
   const projectData = [
+    {
+      title: "Smart Attendance System using Face Recognition",
+      image: "Images/Smart_Attendance.jpeg",
+      desc: "Automated attendance system using face recognition technology for accurate and contactless student attendance tracking in educational institutions.",
+      tags: ["Python", "React.js", "Node.js", "Express.js", "REST APIs"],
+      features: ["Project type: Web application with AI", "Frontend: React.js", "Backend: Node.js, Express.js", "AI/ML: Python face recognition", "Features: Real-time face detection, automatic attendance logging, reports dashboard"],
+      liveUrl: "https://face-recognition-system-silk.vercel.app/",
+      cta: "Live Demo"
+    },
+    {
+      title: "Student Mental Health ChatBot Website",
+      image: "Images/Student_Mental_Health_chatbot.jpeg",
+      desc: "AI-powered mental health chatbot website designed to support students with emotional well-being, counseling resources, and 24/7 peer support.",
+      tags: ["React.js", "Node.js", "Express.js", "Python", "REST APIs"],
+      features: ["Project type: Web application", "Frontend: React.js", "Backend: Node.js, Express.js", "AI Integration: Python-based chatbot", "Features: Mental health resources, anonymous chat, counselor matching"],
+      liveUrl: "https://student-mental-health-chat-bot.vercel.app/",
+      cta: "Live Demo"
+    },
     {
       title: "E-Commerce Website",
       image: "Images/project-ecommerce.jpeg",
@@ -307,6 +326,15 @@ document.addEventListener("DOMContentLoaded", () => {
       tags: ["React.js", "Node.js", "Express.js", "TypeScript", "Bootstrap", "PostgreSQL"],
       features: ["Project type: E-commerce website", "Frontend: React.js, TypeScript, Bootstrap, HTML, CSS, JavaScript", "Backend: Node.js, Express.js, PostgreSQL"],
       liveUrl: "https://e-commerce-website-sandy-seven.vercel.app/",
+      cta: "Live Demo"
+    },
+    {
+      title: "Class Management Portal Website",
+      image: "Images/project-class-portal.jpeg",
+      desc: "Class management portal website built with HTML, CSS, JavaScript, PHP, and MySQL.",
+      tags: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
+      features: ["Project type: Class management portal website", "Frontend: HTML, CSS, JavaScript", "Backend: PHP, MySQL"],
+      liveUrl: "https://sietkcai.infinityfreeapp.com",
       cta: "Live Demo"
     },
     {
@@ -325,15 +353,6 @@ document.addEventListener("DOMContentLoaded", () => {
       tags: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
       features: ["Project type: Live cricket scorecard website", "Frontend: HTML, CSS, JavaScript", "Backend: PHP, MySQL"],
       liveUrl: "https://cptleague.free.nf/",
-      cta: "Live Demo"
-    },
-    {
-      title: "Class Management Portal Website",
-      image: "Images/project-class-portal.jpeg",
-      desc: "Class management portal website built with HTML, CSS, JavaScript, PHP, and MySQL.",
-      tags: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
-      features: ["Project type: Class management portal website", "Frontend: HTML, CSS, JavaScript", "Backend: PHP, MySQL"],
-      liveUrl: "https://sietkcai.infinityfreeapp.com",
       cta: "Live Demo"
     },
     {
